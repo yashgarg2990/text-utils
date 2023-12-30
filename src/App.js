@@ -3,7 +3,7 @@ import Navbar from './components/Navbar';
 import Textform from './components/Textform';
 import About from './components/About';
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
 
 function App() {
   const toggleMode = () => {
@@ -21,23 +21,16 @@ function App() {
 
   const [mode, setMode] = useState("light");
 
-  let routes = (
-    <Switch>
-      <Route exact path="/">
-        <Textform heading="enter your text here " mode={mode} />
-      </Route>
-      <Route exact path="/about">
-        <About />
-      </Route>
-    </Switch>
-  );
+
 
   return (
     <>
-      <Router>
+      
         <Navbar title="Yash Garg" mode={mode} toggleMode={toggleMode} />
-        {routes}
-      </Router>
+        <Textform heading="enter your text here " mode={mode} />
+        <About />
+      
+      
     </>
   );
 }
