@@ -4,8 +4,9 @@ import Textform from './components/Textform';
 import About from './components/About';
 import React, { useState } from 'react';
 
-
 function App() {
+  const [mode, setMode] = useState("light");
+
   const toggleMode = () => {
     if (mode === "light") {
       var newmode = "dark";
@@ -19,18 +20,11 @@ function App() {
     }
   };
 
-  const [mode, setMode] = useState("light");
-
-
-
   return (
     <>
-      
-        <Navbar title="Yash Garg" mode={mode} toggleMode={toggleMode} />
-        <Textform heading="enter your text here " mode={mode} />
-        <About />
-      
-      
+      <Navbar title="Yash Garg" mode={mode} toggleMode={toggleMode} />
+      <Textform heading="enter your text here " mode={mode} />
+      <About />
     </>
   );
 }
